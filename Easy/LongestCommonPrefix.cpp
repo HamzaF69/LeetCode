@@ -11,18 +11,15 @@ public:
         bool same=true;
         string pref="";
         while(same==true){
-            int w;
             for(int i=0;i<n-1;i++){
+                if (j >= strs[i].size() || j >= strs[i+1].size()) {
+                    return pref;
+                }
                 if(strs[i][j]!=strs[i+1][j]){
-                    same=false;
-                    goto exit_loops;
-                }else{
-                    w=i;
-                    same=true;
+                    return pref;
                 }
             }
-            exit_loops:
-            pref=pref+strs[w][j];
+            pref=pref+strs[0][j];
             j++;
         }
         return pref;
